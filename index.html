@@ -154,7 +154,7 @@
         <h1 class="gradient-text">欢迎来到<span style="display: inline-block; transition: transform 0.3s">未来</span></h1>
         <p>探索创新与设计的完美融合，开启非凡数字体验之旅</p>
         <div class="btn-container">
-            <a href="#" class="btn">跟随飞哥 →</a>
+            <a href="#" class="btn" id="start-btn">立即启程 →</a>
         </div>
     </div>
 
@@ -197,6 +197,20 @@
             const deltaY = (e.clientY - headingY) * 0.02;
             
             heading.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+
+        // 跳转逻辑
+        document.getElementById('start-btn').addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止默认跳转行为
+
+            // 添加跳转前的逻辑（例如动画）
+            document.querySelector('.welcome-container').style.opacity = '0';
+            document.querySelector('.welcome-container').style.transform = 'scale(0.9)';
+
+            // 延迟跳转
+            setTimeout(() => {
+                window.location.href = 'new-page.html'; // 跳转到目标页面
+            }, 500); // 500ms 后跳转
         });
     </script>
 </body>
